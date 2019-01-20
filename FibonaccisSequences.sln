@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sequences", "FibonaccisSequences\Sequences.csproj", "{2D3AA77B-3932-45CD-B976-0CEFC339F069}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{1D535DBE-0371-45BA-883A-D63594DA7C07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "Controller\Controller.csproj", "{B33BC0CE-046C-42F0-9A92-4C7A3297A0E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SequencesIO", "SequencesIO\SequencesIO.csproj", "{07453384-F3D9-4408-AD25-94F3A6769176}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D3AA77B-3932-45CD-B976-0CEFC339F069}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D3AA77B-3932-45CD-B976-0CEFC339F069}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D3AA77B-3932-45CD-B976-0CEFC339F069}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D3AA77B-3932-45CD-B976-0CEFC339F069}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D535DBE-0371-45BA-883A-D63594DA7C07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D535DBE-0371-45BA-883A-D63594DA7C07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D535DBE-0371-45BA-883A-D63594DA7C07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D535DBE-0371-45BA-883A-D63594DA7C07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B33BC0CE-046C-42F0-9A92-4C7A3297A0E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B33BC0CE-046C-42F0-9A92-4C7A3297A0E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B33BC0CE-046C-42F0-9A92-4C7A3297A0E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B33BC0CE-046C-42F0-9A92-4C7A3297A0E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07453384-F3D9-4408-AD25-94F3A6769176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07453384-F3D9-4408-AD25-94F3A6769176}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07453384-F3D9-4408-AD25-94F3A6769176}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07453384-F3D9-4408-AD25-94F3A6769176}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {037BC551-1601-49BD-A0E1-E9405ED4CAAD}
+	EndGlobalSection
+EndGlobal
