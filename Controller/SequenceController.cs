@@ -31,7 +31,7 @@ namespace Controller
         {
             long[] arr;
 
-            if (ArgsValidator.ValidateArgs(args, out arr))
+            if (ArgsValidator.GetNumsFromInsertedArgs(args, out arr))
             {
                 if (arr.Length == 0)
                 {
@@ -40,14 +40,14 @@ namespace Controller
                 else if (arr.Length == 1)
                 {
                     _sequence = new SquereSiquence();
+                    _sequence.FormSequence(arr[0]);
                 }
                 else
                 {
                     _sequence = new FIbonacci();
+                    _sequence.FormSequence(arr[0], arr[1]);
                 }
-
-                _sequence.FormSequence(arr[0], arr[1]);
-
+                
                 _viever.ShowMessage(_sequence.ToString());
             }
             else

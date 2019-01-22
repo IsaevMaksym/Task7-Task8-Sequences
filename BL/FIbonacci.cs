@@ -8,10 +8,32 @@ namespace BL
 {
     public class FIbonacci : Sequence
     {
-        private const string FIBONACCI_SEQUENCE = "Your Fibonacci sequence: ";
-
-        private void FoundMinMaxLimit(ref long maxLimit, ref long minLimit)
+        public override void FormSequence(long maxLimit, long minLimit)
         {
+            long fibFirst = 0;
+            long fibSecond = 1;
+
+            this.CorrectMinMaxLimits(ref maxLimit, ref minLimit);
+
+            while (fibSecond < maxLimit)
+            {
+                long tmp = fibSecond;
+                fibSecond += fibFirst;
+                fibFirst = tmp;
+
+                if (fibSecond >= minLimit && fibSecond <= maxLimit)
+                {
+                    _sequence.Enqueue(fibSecond);
+                }
+            }
+        }
+
+        private void CorrectMinMaxLimits(ref long maxLimit, ref long minLimit)
+        {
+
+            maxLimit=Math.Abs(maxLimit);
+            minLimit=Math.Abs(minLimit);
+
             long tmp = maxLimit;
 
             if (tmp < minLimit)
@@ -21,32 +43,5 @@ namespace BL
             }
         }
 
-        public override void FormSequence(long maxLimit, long minLimit)
-        {
-            int fibFirst = 0;
-            int fibSecond = 1;
-            int i = 0;
-
-            this.FoundMinMaxLimit(ref maxLimit, ref minLimit);
-
-            while (fibSecond < maxLimit)
-            {
-                int tmp = fibSecond;
-                fibSecond += fibFirst;
-                fibFirst = tmp;
-
-
-                if (fibSecond >= minLimit && fibSecond <= maxLimit)
-                {
-                    sequence[i] = fibSecond;
-                    i++;
-                }
-            }
-        }
-
-        public override string ToString()
-        {
-            return base.ToString();
-        }
     }
 }

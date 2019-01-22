@@ -7,57 +7,44 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    public abstract class Sequence : IEnumerator<int>
+    public abstract class Sequence
     {
-        protected int[] sequence;
-        protected int position = -1;
-        private StringBuilder stringBuilder = new StringBuilder(200);
+        private const string SQUERE_SIQUENCE = "Your squere siquence: ";
+        private const string FIBONACCI_SEQUENCE = "Your Fibonacci sequence: ";
 
-        public abstract void FormSequence(long maxLimit, long minLimit);
+        protected Queue<long> _sequence = new Queue<long>();
+        private StringBuilder _stringBuilder = new StringBuilder(200);
 
-        public int Current
+        public abstract void FormSequence(long maxLimit, long minLimit = 0);
+
+        public virtual IEnumerator<long> GetEnumerator()
         {
-            get
+            if (_sequence == null)
             {
-                if (position == -1 || position >= sequence.Length)
-                    throw new InvalidOperationException();
-
-                return sequence[position];
+                yield return 0;
             }
-        }
-
-        object IEnumerator.Current
-        {
-            get
+            foreach (int num in _sequence)
             {
-                return Current;
+                yield return num;
             }
-        }
-        
-        public void Dispose()
-        {
-            this.Dispose();
-        }
-
-        public bool MoveNext()
-        {
-            position++;
-
-            return (position < sequence.Length);
-        }
-
-        public void Reset()
-        {
-            position = -1;
         }
 
         public override string ToString()
         {
-            foreach (int num in sequence)
+            if (this is FIbonacci)
             {
-                stringBuilder.Append(num).Append(", ");
+                _stringBuilder.Append(FIBONACCI_SEQUENCE);
             }
-            return stringBuilder.ToString();
+            else
+            {
+                _stringBuilder.Append(SQUERE_SIQUENCE);
+            }
+            foreach (int num in _sequence)
+            {
+                _stringBuilder.Append(num).Append(", ");
+            }
+
+            return _stringBuilder.ToString();
         }
     }
 }

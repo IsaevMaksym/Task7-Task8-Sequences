@@ -12,11 +12,6 @@ namespace Sequences
     {
         static void Main(string[] args)
         {
-
-            args = new string[]
-            {                
-                "125"
-            };
             SequenceController controller = new SequenceController();
             controller.Run(args);
         }

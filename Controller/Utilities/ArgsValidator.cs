@@ -8,7 +8,7 @@ namespace Controller.Utilities
 {
     static class ArgsValidator
     {
-        public static bool ValidateArgs(string[] args, out long[] nums)
+        public static bool GetNumsFromInsertedArgs(string[] args, out long[] nums)
         {
             bool IsValidated = false;
 
@@ -25,19 +25,26 @@ namespace Controller.Utilities
             return IsValidated;
         }
 
-        private static bool ParseInsertedArgs(string[] args, out long[] num)
+        private static bool ParseInsertedArgs(string[] args, out long[] arr)
         {          
             bool isParsed = false;
-            num = new long[args.Length];
-
+            List<long> nums = new List<long>(2);
+            long num;
+                       
             for (int i = 0; i < args.Length; i++)
             {
-                if (long.TryParse(args[i], out num[i]))
+                
+                if (long.TryParse(args[i], out num))
                 {
                     isParsed = true;
+                    nums.Add(num);                    
+                }
+                if (nums.Count==2)
+                {
+                    break;
                 }
             }
-            
+            arr = nums.ToArray();            
             return isParsed;
         }
 
