@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-   public interface ISequence
+   public interface ISequence:IEnumerator<int>
     {
-        void CreateSequences(params int[] num);
+        void FormSequence(long maxLimit, long minLimit);
     }
 }

@@ -13,24 +13,23 @@ namespace Controller
     {
         const string RULES = "Enter number(s), if you want to create a sequences.\nIf one number - it will create sequence of numbers, which square is less than the"
                             + " inserted number.\nIf enter two numbers - it will create Fibonacci sequence in inserted limits";
-
-        private ISequence _sequence;
+                
         private IViever _viever;
+        private Sequence _sequence;
 
         public SequenceController()
-            :this(new SquereSiquence(), new ConsoleIO())
+            :this(new ConsoleIO())
         {
-
         }
-        public SequenceController(ISequence sequence, IViever viever)
+
+        public SequenceController(IViever viever)
         {
-            _viever = viever;
-            this._sequence = sequence;
+            _viever = viever;            
         }
 
         public void Run(string[] args)
         {
-            int[] arr;
+            long[] arr;
 
             if (ArgsValidator.ValidateArgs(args, out arr))
             {
@@ -47,7 +46,7 @@ namespace Controller
                     _sequence = new FIbonacci();
                 }
 
-                _sequence.CreateSequences(arr);
+                _sequence.FormSequence(arr[0], arr[1]);
 
                 _viever.ShowMessage(_sequence.ToString());
             }

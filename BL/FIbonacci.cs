@@ -6,67 +6,47 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    public class FIbonacci : ISequence
+    public class FIbonacci : Sequence
     {
         private const string FIBONACCI_SEQUENCE = "Your Fibonacci sequence: ";
-        private int minNum;
-        private int maxNum;
-        private List<int> arr = new List<int>();
 
-        public void CreateSequences(params int[] num)
+        private void FoundMinMaxLimit(ref long maxLimit, ref long minLimit)
         {
-            FoundMinMaxNum(num);
+            long tmp = maxLimit;
 
-            FibSequence();
-
+            if (tmp < minLimit)
+            {
+                maxLimit = minLimit;
+                minLimit = tmp;
+            }
         }
 
-        private void FoundMinMaxNum(int[] num)
-        {
-            minNum = maxNum = num[0];
-
-            if (num[0] > num[1])
-            {
-                minNum = num[1];
-                maxNum = num[0];
-            }
-            else if (num[0] < num[1])
-            {
-                minNum = num[0];
-                maxNum = num[1];
-            }
-
-        }
-
-        private void FibSequence()
+        public override void FormSequence(long maxLimit, long minLimit)
         {
             int fibFirst = 0;
             int fibSecond = 1;
+            int i = 0;
 
-            while (fibSecond < maxNum)
+            this.FoundMinMaxLimit(ref maxLimit, ref minLimit);
+
+            while (fibSecond < maxLimit)
             {
                 int tmp = fibSecond;
                 fibSecond += fibFirst;
                 fibFirst = tmp;
 
-                if (fibSecond >= minNum && fibSecond <= maxNum)
-                {
-                    arr.Add(fibSecond);
-                }
 
+                if (fibSecond >= minLimit && fibSecond <= maxLimit)
+                {
+                    sequence[i] = fibSecond;
+                    i++;
+                }
             }
         }
 
         public override string ToString()
         {
-            string s = string.Format(FIBONACCI_SEQUENCE);
-
-            foreach (var item in arr)
-            {
-                s += item.ToString() + ", ";
-            }
-
-            return s;
+            return base.ToString();
         }
     }
 }

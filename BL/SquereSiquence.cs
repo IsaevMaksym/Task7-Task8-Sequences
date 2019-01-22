@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,41 +7,26 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    public class SquereSiquence : ISequence
+    public class SquereSiquence : Sequence
     {
         private const string SQUERE_SIQUENCE = "Your squere siquence: ";
 
-        private int maxNum = 0;
-        private List<int> arr = new List<int>();
-
-        public void CreateSequences(params int[] num)
+        public override void FormSequence(long maxLimit, long minLimit=0)
         {
-            maxNum = num[0];
+            int maxLimitSQRT=(int)Math.Sqrt(maxLimit);
 
-            FormSequence();
-        }
-
-        private void FormSequence()
-        {
-            int num = 1;
-
-            while (Math.Pow(num, 2) < maxNum)
+            for (int i = 0; i < maxLimitSQRT; i++)
             {
-                arr.Add(num);
-                num++;                
+                sequence[i] = i;
             }
+
         }
-               
+
         public override string ToString()
-        {
-            string s =string.Format(SQUERE_SIQUENCE);
+        { 
 
-            foreach (var item in arr)
-            {
-                s += item.ToString() + ", ";
-            }
-
-            return s;
+            return base.ToString();
         }
     }
 }
+
