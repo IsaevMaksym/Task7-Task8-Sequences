@@ -14,7 +14,7 @@ namespace Controller
         const string RULES = "Enter number(s), if you want to create a sequences.\nIf one number - it will create sequence of numbers, which square is less than the"
                             + " inserted number.\nIf enter two numbers - it will create Fibonacci sequence in inserted limits";
                 
-        private IViever _viever;
+        private IViewer _viever;
         private Sequence _sequence;
 
         public SequenceController()
@@ -22,7 +22,7 @@ namespace Controller
         {
         }
 
-        public SequenceController(IViever viever)
+        public SequenceController(IViewer viever)
         {
             _viever = viever;            
         }

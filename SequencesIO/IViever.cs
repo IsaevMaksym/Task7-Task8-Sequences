@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SequencesIO
 {
-    public interface IViever
+    public interface IViewer
     {
         void ShowMessage(string s);
     }
